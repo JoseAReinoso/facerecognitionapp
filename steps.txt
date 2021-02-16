@@ -1,0 +1,6 @@
+1. npx create-react-app my-app 
+2. Picture what components you want to create, take a look at image of my wireframe i want name wireframe.
+3. in this case ill create the next components = Navigation, Logo, ImageLinkFrom, and facerecognition .
+4. for styling ill use something called tachyons, therefore npm install it and import it on index.js import 'tachyons'
+5. to give that nice funtionality to the logo use react-tilt npm install --save react-tilt  https://www.npmjs.com/package/react-tilt
+
