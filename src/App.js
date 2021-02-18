@@ -10,17 +10,21 @@ import Particles from 'react-particles-js';
 const particlesOptions = {
 particles:{
 number:{
-  value:80,
+  value:70,
   density:{
     enable:true,
     value_area:800
   }
-  
+ }
+},
+interactivity:{
+events:{
+  onhover:{
+    enable:true,
+    mode:"repulse"
+  }
 }
-
-
 }
-
 }
 
 class App extends Component {

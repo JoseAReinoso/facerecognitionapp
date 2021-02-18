@@ -4,5 +4,5 @@
 4. for styling ill use something called tachyons, therefore npm install it and import it on index.js import 'tachyons'
 5. to give that nice funtionality to the logo use react-tilt npm install --save react-tilt  https://www.npmjs.com/package/react-tilt
 6.install particles.js to install that nice moving particles....see https://www.npmjs.com/package/react-particles-js  & https://vincentgarreau.com/particles.js/
-to see options
+to see options ...check App.js to see how i configured it. check .particles class to see how to make sure it stays in the back of site.
 
