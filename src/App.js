@@ -45,7 +45,7 @@ class App extends Component {
   }
   onSubmit = ()=>{
     console.log('Click')
-    app.models.predict("2c97dd3f6b2747a4b0e03c8718905e28","https://www.incimages.com/uploaded_files/image/1920x1080/getty_962098266_200013332000928094_440161.jpg").then(
+    app.models.predict("d02b4508df58432fbb84e800597b8959","https://www.incimages.com/uploaded_files/image/1920x1080/getty_962098266_200013332000928094_440161.jpg").then(
       function(response){
      console.log(response)
       },

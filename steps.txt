@@ -12,3 +12,4 @@ create state
 8.setup onSubmit and onChange on App.js and pass through POP to ImageLinkFrom /https://docs.clarifai.com/
 
 
+
