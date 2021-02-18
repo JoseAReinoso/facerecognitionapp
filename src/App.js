@@ -6,6 +6,11 @@ import ImageLinkForm from './Components/ImageLinkForm/ImageLinkForm'
 import Rank from './Components/Rank/Rank'
 //ill create the next components = Navigation, Logo, ImageLinkFrom, and facerecognition .
 import Particles from 'react-particles-js';
+import Clarifai from 'clarifai'
+
+const app = new Clarifai.App({
+  apiKey: '2c97dd3f6b2747a4b0e03c8718905e28'
+ });
 
 const particlesOptions = {
 particles:{
@@ -40,6 +45,16 @@ class App extends Component {
   }
   onSubmit = ()=>{
     console.log('Click')
+    app.models.predict("2c97dd3f6b2747a4b0e03c8718905e28","https://www.incimages.com/uploaded_files/image/1920x1080/getty_962098266_200013332000928094_440161.jpg").then(
+      function(response){
+     console.log(response)
+      },
+      function(error){
+     console.log("Error that im getting= ",error)
+      }
+
+    )
+
   }
 
   render(){

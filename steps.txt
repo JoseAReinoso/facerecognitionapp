@@ -9,5 +9,6 @@ to see options ...check App.js to see how i configured it. check .particles clas
 
 create state
 7.create state(look at App constructor )
-8.setup onSubmit and onChange on App.js and pass through POP to ImageLinkFrom
+8.setup onSubmit and onChange on App.js and pass through POP to ImageLinkFrom /https://docs.clarifai.com/
+
 
