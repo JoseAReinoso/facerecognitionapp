@@ -15,3 +15,7 @@ How we will use the API with JS (don't worry I will show you the easy way to do 
 Finally, this is the list of all the models you can use with this API if you want to customize your project: https://www.clarifai.com/model-gallery
 
 
+set setState to actually change on the first try by passing a function to it
+9.https://stackoverflow.com/questions/38558200/react-setstate-not-updating-immediately
+
+
