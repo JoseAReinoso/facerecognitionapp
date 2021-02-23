@@ -18,4 +18,14 @@ Finally, this is the list of all the models you can use with this API if you wan
 set setState to actually change on the first try by passing a function to it
 9.https://stackoverflow.com/questions/38558200/react-setstate-not-updating-immediately
 
+to get the square around the face do teh following
+10.Set up an ID to the img at FaceRecognition.js, and then do some DOM manipulation to it on App.js
+11.Then get the image width and height and do some calculation to get the exact ping where there sqare points will be on the calculateFaceLocation
+function and return it.
+12.create a displayFacebox function that will set the box state via de onsubmit function.
+13.pass the box state to facerecognition.js.
+14 create a new div and create a class and add some styling in a new css file.. and finally add styling passing the location where line
+will be formed.
+
+
 
