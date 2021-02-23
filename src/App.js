@@ -6,7 +6,8 @@ import ImageLinkForm from './Components/ImageLinkForm/ImageLinkForm'
 import Rank from './Components/Rank/Rank'
 //ill create the next components = Navigation, Logo, ImageLinkFrom, and facerecognition .
 import Particles from 'react-particles-js';
-import Clarifai from 'clarifai'
+import Clarifai from 'clarifai';
+import FaceRecognition from './Components/FaceRecognition/FaceRecognition'
 
 const app = new Clarifai.App({
   apiKey: '2c97dd3f6b2747a4b0e03c8718905e28'
@@ -37,15 +38,18 @@ class App extends Component {
   constructor(){
     super()
     this.state ={
-      input:''
+      input:'',
+      imageUrl:''
     }
   }
   onInputChange = (event) => {
-    console.log(event.target.value)
+    this.setState({input:event.target.value})
   }
   onSubmit = ()=>{
-    console.log('Click')
-    app.models.predict("d02b4508df58432fbb84e800597b8959","https://www.incimages.com/uploaded_files/image/1920x1080/getty_962098266_200013332000928094_440161.jpg").then(
+    this.setState({imageUrl:this.state.input})
+    app.models.predict(Clarifai.COLOR_MODEL,
+    "https://images.pexels.com/photos/1496372/pexels-photo-1496372.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")
+    .then(
       function(response){
      console.log(response)
       },
@@ -68,10 +72,10 @@ class App extends Component {
         <Logo/>
         <Rank/>
         <ImageLinkForm onInputChange={this.onInputChange} onSubmit={this.onSubmit}/>
+        <FaceRecognition imageUrl={this.state.imageUrl}/>
       
-        {/*
+      
         
-        <FaceRecognition/>*/}
       </div>
     )
   }
