@@ -48,7 +48,7 @@ class App extends Component {
   onSubmit = ()=>{
     this.setState({imageUrl:this.state.input})
     app.models.predict(Clarifai.COLOR_MODEL,
-    "https://images.pexels.com/photos/1496372/pexels-photo-1496372.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")
+    this.state.input)
     .then(
       function(response){
      console.log(response)
