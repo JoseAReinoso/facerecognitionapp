@@ -35,12 +35,15 @@ create Signin form
 <article class="br2 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw5 center">
 19. change class to className ... you can do all in same page by pressing CTRL + H.
 
-Using the form
+Using the form and navigating through website.
 20.Start by creating a route state for it on App.js to track on which page we are and give it a default value of signin
 21. In order to have the Signin Form appearing only when needed, wrap components in a {} and do an if statement that says that if this.state.route
 === to signin then return just the logo and sign in, otherwise return logo,  imagelinkform and rest of it.
 22.make sure that the components are wrapped withing divs when when doing the conditional statements
-
+23. Now lets make an onRouteChange function that will take us to the page once Signin button is clicked
+24.now lets use Navigation component where sign out button is to take us back to signIn component (Home)
+25.Make the onRouteChange dinamically by us passing the home or signin argument, but make sure you use this syntax when you do so.
+() => onRouteChange('home)
 
 
 
