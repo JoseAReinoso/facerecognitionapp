@@ -44,7 +44,7 @@ class App extends Component {
       input:'',
       imageUrl:'',
       box:{},
-      route:'sigin'
+      route:'signin'
     }
   }
   calculateFaceLocation = (data) => {
@@ -93,15 +93,26 @@ class App extends Component {
         <Particles className ="particles"
         params={particlesOptions}
         />
-        <Signin/>
         <Navigation/>
+        {this.state.route === 'signin' 
+          ?
+          <div>
+          <Logo/>
+          <Signin/>
+          </div>
+
+          :<div>
         <Logo/>
         <Rank/>
         <ImageLinkForm onInputChange={this.onInputChange} onSubmit={this.onSubmit}/>
         <FaceRecognition  box={this.state.box} imageUrl={this.state.imageUrl}/>
-      
-      
-        
+
+          </div>
+
+
+        }
+
+  
       </div>
     )
   }

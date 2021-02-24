@@ -38,6 +38,9 @@ create Signin form
 Using the form
 20.Start by creating a route state for it on App.js to track on which page we are and give it a default value of signin
 21. In order to have the Signin Form appearing only when needed, wrap components in a {} and do an if statement that says that if this.state.route
-=== to signin then return just the logo and sign in, otherwise return logo, link, imagelinkform and rest of it.
+=== to signin then return just the logo and sign in, otherwise return logo,  imagelinkform and rest of it.
+22.make sure that the components are wrapped withing divs when when doing the conditional statements
+
+
 
 
