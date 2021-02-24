@@ -27,5 +27,17 @@ function and return it.
 14 create a new div and create a class and add some styling in a new css file.. and finally add styling passing the location where line
 will be formed.
 
+create Signin form
+15.use tachyons form component = http://tachyons.io/components/forms/sign-in/index.html
+16.note... When you put HTML in JSX you have to make sure you close inputs example - <input  type="password" />
+17.create css file for Signin and add the css on the portal in it.
+18.To style it quick first, steal the border from this card component https://tachyons.io/components/cards/product-card/index.html
+<article class="br2 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw5 center">
+19. change class to className ... you can do all in same page by pressing CTRL + H.
+
+Using the form
+20.Start by creating a route state for it on App.js to track on which page we are and give it a default value of signin
+21. In order to have the Signin Form appearing only when needed, wrap components in a {} and do an if statement that says that if this.state.route
+=== to signin then return just the logo and sign in, otherwise return logo, link, imagelinkform and rest of it.
 
 

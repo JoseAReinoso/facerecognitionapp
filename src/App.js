@@ -8,6 +8,9 @@ import Rank from './Components/Rank/Rank'
 import Particles from 'react-particles-js';
 import Clarifai from 'clarifai';
 import FaceRecognition from './Components/FaceRecognition/FaceRecognition'
+import Signin from './Components/Signin/Signin'
+
+
 
 const app = new Clarifai.App({
   apiKey: '2c97dd3f6b2747a4b0e03c8718905e28'
@@ -40,7 +43,8 @@ class App extends Component {
     this.state ={
       input:'',
       imageUrl:'',
-      box:{}
+      box:{},
+      route:'sigin'
     }
   }
   calculateFaceLocation = (data) => {
@@ -89,6 +93,7 @@ class App extends Component {
         <Particles className ="particles"
         params={particlesOptions}
         />
+        <Signin/>
         <Navigation/>
         <Logo/>
         <Rank/>
