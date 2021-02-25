@@ -106,7 +106,7 @@ class App extends Component {
         params={particlesOptions}
         />
         <Navigation isSignedIn={this.state.isSignedIn} onRouteChange={this.onRouteChange} />
-        {this.state.route === 'signin' || this.state.route === 'signout'
+        {this.state.route === 'signin' || this.state.route === 'signout' // This signout value gets generated in the navivation component
           ?
           <div>
           <Logo/>
