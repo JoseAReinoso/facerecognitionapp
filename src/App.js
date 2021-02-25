@@ -99,27 +99,28 @@ class App extends Component {
   }
 
   render(){
+    const {isSignedIn,route,imageUrl, box } = this.state
     return (
       <div className="App">
         {/*create class and add css to prevent this from overwritting our app*/}
         <Particles className ="particles"
         params={particlesOptions}
         />
-        <Navigation isSignedIn={this.state.isSignedIn} onRouteChange={this.onRouteChange} />
-        {this.state.route === 'signin' || this.state.route === 'signout' // This signout value gets generated in the navivation component
+        <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
+        {route === 'signin' || route === 'signout' // This signout value gets generated in the navivation component
           ?
           <div>
           <Logo/>
           <Signin  onRouteChange={this.onRouteChange}/>
           </div>
 
-          : this.state.route === 'home'
+          : route === 'home'
           ?
           <div>
         <Logo/>
         <Rank/>
         <ImageLinkForm onInputChange={this.onInputChange} onSubmit={this.onSubmit}/>
-        <FaceRecognition  box={this.state.box} imageUrl={this.state.imageUrl}/>
+        <FaceRecognition  box={box} imageUrl={imageUrl}/>
 
           </div>
           :
