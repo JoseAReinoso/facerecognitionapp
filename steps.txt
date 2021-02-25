@@ -45,5 +45,18 @@ Using the form and navigating through website.
 25.Make the onRouteChange dinamically by us passing the home or signin argument, but make sure you use this syntax when you do so.
 () => onRouteChange('home)
 
+building the register form
+26 create your register component, copy and pase same as signing and change it to name, email password,
+27 setup onclick to ()=>onRouteChange('Register') on Signin where the register value is.
+28 Do an addional condition to show register component when state equals Register.
+
+show sign in when you are the login page but only sign out when you are at home.
+29 on the Navigation Component check if isSignedIn is true, if it is then enble the Signout function and switch state to signin
+30 if isSignedIn is false, then show Log in and Register , if you click to log in it should link you to login and if you click to register to register.
+31 on app js create a new state isSignedIn and give default value false
+32 on app js where the on RouteChange function do a condition that checks if newRoute equals signout to set isSignedIn to false
+and if newRoute === home to set isSignedIn to true if newRoute is not on neither state then simply return the newRoute.
+33 pass as props the newly created isSignedIn state to Navigation
+
 
 
