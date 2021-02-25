@@ -9,6 +9,7 @@ import Particles from 'react-particles-js';
 import Clarifai from 'clarifai';
 import FaceRecognition from './Components/FaceRecognition/FaceRecognition'
 import Signin from './Components/Signin/Signin'
+import Register from './Components/Register/Register'
 
 
 
@@ -105,14 +106,20 @@ class App extends Component {
           <Signin onRouteChange={this.onRouteChange}/>
           </div>
 
-          :<div>
+          : this.state.route === 'home'
+          ?
+          <div>
         <Logo/>
         <Rank/>
         <ImageLinkForm onInputChange={this.onInputChange} onSubmit={this.onSubmit}/>
         <FaceRecognition  box={this.state.box} imageUrl={this.state.imageUrl}/>
 
           </div>
-
+          :
+          <div>
+            <Logo/>
+            <Register onRouteChange={this.onRouteChange}/>
+          </div>
 
         }
 
