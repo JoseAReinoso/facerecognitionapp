@@ -13,6 +13,7 @@ import Register from './Components/Register/Register'
 
 
 
+
 const app = new Clarifai.App({
   apiKey: '2c97dd3f6b2747a4b0e03c8718905e28'
  });
@@ -49,6 +50,13 @@ class App extends Component {
       isSignedIn:false
     }
   }
+ componentDidMount() {
+  fetch('http://localhost:3001/')
+  .then(responsse => responsse.json())
+  .then(data => console.log(data))
+ }
+
+
   calculateFaceLocation = (data) => {
      const clarifaiFace = data
      //Get the image by DOM manipulation

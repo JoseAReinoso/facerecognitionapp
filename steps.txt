@@ -61,5 +61,10 @@ and if newRoute === home to set isSignedIn to true if newRoute is not on neither
 35.remove form tags to div on register and signin as forms automatically tries to send something, and we dont need it as we will use ajax later
 to send data out.
 
+//Connecting signin component to backend signing endpoint
+1.convert our Signin componen to a class coponent in order to have a state now.
+2.create an onEmailChange, onPasswordChange that produces the state changes necessary to input values in.
+3. create onSubmit that product the post request to send data to backend. 
+
 
 
