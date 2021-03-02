@@ -57,6 +57,9 @@ show sign in when you are the login page but only sign out when you are at home.
 32 on app js where the on RouteChange function do a condition that checks if newRoute equals signout to set isSignedIn to false
 and if newRoute === home to set isSignedIn to true if newRoute is not on neither state then simply return the newRoute.
 33 pass as props the newly created isSignedIn state to Navigation
+34 fixed console errors.
+35.remove form tags to div on register and signin as forms automatically tries to send something, and we dont need it as we will use ajax later
+to send data out.
 
 
 
