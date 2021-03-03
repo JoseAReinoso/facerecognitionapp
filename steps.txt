@@ -64,7 +64,11 @@ to send data out.
 //Connecting signin component to backend signing endpoint
 1.convert our Signin componen to a class coponent in order to have a state now.
 2.create an onEmailChange, onPasswordChange that produces the state changes necessary to input values in.
-3. create onSubmit that product the post request to send data to backend. 
+3. create onSubmit that produce the post request to send data to backend. 
+4.if everything goes as accorded, when you click sign in you should be able to see response on the network tab on console log, in my case
+it should say "Sucess"
+5. Once i get that Sucess message, go ahead and get the response by .then response it. and do a conditional that if its sucess to do the 
+route change to home otherwise if its equal to "error logging in"
 
 
 
