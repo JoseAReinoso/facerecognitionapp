@@ -108,10 +108,25 @@ class App extends Component {
     this.setState({imageUrl:this.state.input},this.updatingSetImgUrl)
     app.models.predict(Clarifai.FACE_DETECT_MODEL,
     this.state.input)
-    .then( response =>  this.displayFacebox(this.calculateFaceLocation(response.outputs[0]['data']['regions'][0]["region_info"]['bounding_box']))
+    .then( response => {
+      if (response) {
+        fetch('http://localhost:3001/image', {
+          method:'put',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({
+            id:this.state.user.id,
+          })
+        })
+        .then(response => response.json())
+        .then(count => {
+          //use Object.assign so we are especifically changing on specific key:value pair in the user object
+          this.setState(Object.assign(this.state.user, {entries:count}))
+        })
+      }
+      this.displayFacebox(this.calculateFaceLocation(response.outputs[0]['data']['regions'][0]["region_info"]['bounding_box']))
+    })
     .catch( error =>console.log("Error that im getting= ",error) )
  
-    )
 
   }
 
@@ -138,14 +153,14 @@ class App extends Component {
           ?
           <div>
           <Logo/>
-          <Signin  onRouteChange={this.onRouteChange}/>
+          <Signin  onRouteChange={this.onRouteChange} loadUser={this.loadUser}/>
           </div>
 
           : route === 'home'
           ?
           <div>
         <Logo/>
-        <Rank/>
+        <Rank userState = {this.state.user}/>
         <ImageLinkForm onInputChange={this.onInputChange} onSubmit={this.onSubmit}/>
         <FaceRecognition  box={box} imageUrl={imageUrl}/>
 

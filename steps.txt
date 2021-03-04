@@ -73,7 +73,11 @@ route change to home otherwise if its equal to "error logging in" you could crea
 ////Connecting register component to backend signing endpoint
 1.Follow all similar steops from the signin on top.
 2.Since we are updating the user profile dinamically, add an user object on the App state and update it via a funtion which will be 
-invoke on the onSubmitRegister via props located on the register component.
+invoke on the onSubmitRegister via props located on the register component. (NOTE MAKE SURE TO DO THIS FOR THE SIGNIN COMPONENT AS WELL)
+
+//Use the returned object from signin in and registering to start dinamically changing data on the rank Component
+1.once loadUser is setup and updating the state of the user, send it via props to Rank and start rendering it there dinamically
+2.do a put request from Apps.js to route /image to update the entries on our state located at App.js using our onSubmit function
 
 
 
