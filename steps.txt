@@ -68,7 +68,12 @@ to send data out.
 4.if everything goes as accorded, when you click sign in you should be able to see response on the network tab on console log, in my case
 it should say "Sucess"
 5. Once i get that Sucess message, go ahead and get the response by .then response it. and do a conditional that if its sucess to do the 
-route change to home otherwise if its equal to "error logging in"
+route change to home otherwise if its equal to "error logging in" you could create somethin to display error.
+
+////Connecting register component to backend signing endpoint
+1.Follow all similar steops from the signin on top.
+2.Since we are updating the user profile dinamically, add an user object on the App state and update it via a funtion which will be 
+invoke on the onSubmitRegister via props located on the register component.
 
 
 
