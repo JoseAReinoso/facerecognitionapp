@@ -121,6 +121,7 @@ class App extends Component {
           //use Object.assign so we are especifically changing on specific key:value pair in the user object
           this.setState(Object.assign(this.state.user, {entries:count}))
         })
+        .catch(error => console.log("error coming from image post/front end", error))
       }
       this.displayFacebox(this.calculateFaceLocation(response.outputs[0]['data']['regions'][0]["region_info"]['bounding_box']))
     })
