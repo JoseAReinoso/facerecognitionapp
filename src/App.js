@@ -11,9 +11,6 @@ import FaceRecognition from './Components/FaceRecognition/FaceRecognition'
 import Signin from './Components/Signin/Signin'
 import Register from './Components/Register/Register'
 
-
-
-
 const app = new Clarifai.App({
   apiKey: '2c97dd3f6b2747a4b0e03c8718905e28'
  });
@@ -39,23 +36,25 @@ events:{
 }
 }
 
+const initialState = {
+  input:'',
+  imageUrl:'',
+  box:{},
+  route:'signin',
+  isSignedIn:false,
+  user: {
+    id:"",
+    name:"",
+    email:"",
+    entries:0,
+    joined: ""
+  }
+}
+
 class App extends Component {
   constructor(){
     super()
-    this.state ={
-      input:'',
-      imageUrl:'',
-      box:{},
-      route:'signin',
-      isSignedIn:false,
-      user: {
-        id:"",
-        name:"",
-        email:"",
-        entries:0,
-        joined: ""
-      }
-    }
+    this.state = initialState
   }
  
   loadUser = (user) => {
@@ -133,7 +132,7 @@ class App extends Component {
   onRouteChange = (newRoute)=> {
     console.log(newRoute)
     if (newRoute === 'signout') {
-      this.setState({isSignedIn:false})
+      this.setState(initialState)
     }else if( newRoute === 'home'){
       this.setState({isSignedIn:true})
     }

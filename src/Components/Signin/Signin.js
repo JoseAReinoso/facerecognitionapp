@@ -7,7 +7,8 @@ class Signin extends React.Component  {
     super(props)
     this.state = {
       signInEmail:'',
-      signInPassword:''
+      signInPassword:'',
+      errorMessage:''
     }
   }
   
@@ -30,11 +31,12 @@ class Signin extends React.Component  {
    .then(response => response.json())
    .then(data => {
      console.log(data)
-     if (data != 'error loggin in'){
+     if (data != 'wrong credentials'){
       this.props.loadUser(data)
       this.props.onRouteChange('home')
       
-
+     }else {
+       this.setState({errorMessage:data})
      }
    })
    
@@ -80,6 +82,7 @@ class Signin extends React.Component  {
         <div className="lh-copy mt3">
           <p  onClick={()=>onRouteChange('register')} className="f5 link dim black db ph0 pointer">Register</p>
         </div>
+        <p className="l b dark-red" >{this.state.errorMessage}</p>
       </div>
     </main>
     </article>

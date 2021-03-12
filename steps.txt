@@ -78,6 +78,7 @@ invoke on the onSubmitRegister via props located on the register component. (NOT
 //Use the returned object from signin in and registering to start dinamically changing data on the rank Component
 1.once loadUser is setup and updating the state of the user, send it via props to Rank and start rendering it there dinamically
 2.do a put request from Apps.js to route /image to update the entries on our state located at App.js using our onSubmit function
+3.In order to update an especific key:value info inside of an object living inside a state, use Object.assign
 
 
 
