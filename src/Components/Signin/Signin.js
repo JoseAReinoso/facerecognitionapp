@@ -31,12 +31,17 @@ class Signin extends React.Component  {
    .then(response => response.json())
    .then(data => {
      console.log(data)
-     if (data != 'wrong credentials'){
+     if (data == 'wrong credentials'){
+      this.setState({errorMessage:data})
+      
+     }else if(data == 'Missing Password or Email'){
+      this.setState({errorMessage:data})
+
+     }
+     else {
       this.props.loadUser(data)
       this.props.onRouteChange('home')
-      
-     }else {
-       this.setState({errorMessage:data})
+       
      }
    })
    
