@@ -6,14 +6,9 @@ import ImageLinkForm from './Components/ImageLinkForm/ImageLinkForm'
 import Rank from './Components/Rank/Rank'
 //ill create the next components = Navigation, Logo, ImageLinkFrom, and facerecognition .
 import Particles from 'react-particles-js';
-import Clarifai from 'clarifai';
 import FaceRecognition from './Components/FaceRecognition/FaceRecognition'
 import Signin from './Components/Signin/Signin'
 import Register from './Components/Register/Register'
-
-const app = new Clarifai.App({
-  apiKey: '2c97dd3f6b2747a4b0e03c8718905e28'
- });
 
 const particlesOptions = {
 particles:{
@@ -105,8 +100,17 @@ class App extends Component {
 
   onSubmit = ()=>{
     this.setState({imageUrl:this.state.input},this.updatingSetImgUrl)
-    app.models.predict(Clarifai.FACE_DETECT_MODEL,
-    this.state.input)
+
+   //we are calling the clarifai API to the backend from here
+   fetch('http://localhost:3001/imageAPIcall', {
+    method:'post',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      input:this.state.input,
+    })
+  })
+  //make this to be json response
+  .then(response => response.json())
     .then( response => {
       if (response) {
         fetch('http://localhost:3001/image', {
