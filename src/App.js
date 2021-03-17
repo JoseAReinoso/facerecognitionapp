@@ -64,7 +64,7 @@ class App extends Component {
   }
 
  componentDidMount() {
-  fetch('http://localhost:3001/')
+  fetch('https://damp-brook-10306.herokuapp.com/')
   .then(responsse => responsse.json())
   .then(data => console.log(data))
  }
@@ -102,7 +102,7 @@ class App extends Component {
     this.setState({imageUrl:this.state.input},this.updatingSetImgUrl)
 
    //we are calling the clarifai API to the backend from here
-   fetch('http://localhost:3001/imageAPIcall', {
+   fetch('https://damp-brook-10306.herokuapp.com/imageAPIcall', {
     method:'post',
     headers:{'Content-Type':'application/json'},
     body:JSON.stringify({
@@ -113,7 +113,7 @@ class App extends Component {
   .then(response => response.json())
     .then( response => {
       if (response) {
-        fetch('http://localhost:3001/image', {
+        fetch('https://damp-brook-10306.herokuapp.com/image', {
           method:'put',
           headers:{'Content-Type':'application/json'},
           body:JSON.stringify({

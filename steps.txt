@@ -80,5 +80,9 @@ invoke on the onSubmitRegister via props located on the register component. (NOT
 2.do a put request from Apps.js to route /image to update the entries on our state located at App.js using our onSubmit function
 3.In order to update an especific key:value info inside of an object living inside a state, use Object.assign
 
+//deploying on heroku
+1.npm install serve --s and on the package.json change start to "serve -s build"
+2.follow steps on https://dashboard.heroku.com/apps/facerecognitionball/deploy/heroku-git
+
 
 
