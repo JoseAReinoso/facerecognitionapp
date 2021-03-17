@@ -1,10 +1,12 @@
 import React from 'react';
 
-const Rank = () => {
+const Rank = ({userState}) => {
+    const {entries, name} = userState
+
     return (
-        <div style={{justifyContent:"center", display:"flex", alignItems:"center,",flexDirection:"column"}}>
-         <div className="white f3">Jose, your current Rank is..</div>
-         <div className="white f1">#1</div>
+        <div >
+         <div className="white f3">{`${name}, your current Entry Count is..`}</div>
+         <div className="white f1">{`#${entries}`}</div>
         </div>
     )
 }

@@ -1,6 +1,89 @@
+ build components
 1. npx create-react-app my-app 
 2. Picture what components you want to create, take a look at image of my wireframe i want name wireframe.
 3. in this case ill create the next components = Navigation, Logo, ImageLinkFrom,rank and facerecognition .
 4. for styling ill use something called tachyons, therefore npm install it and import it on index.js import 'tachyons'
 5. to give that nice funtionality to the logo use react-tilt npm install --save react-tilt  https://www.npmjs.com/package/react-tilt
+6.install particles.js to install that nice moving particles....see https://www.npmjs.com/package/react-particles-js  & https://vincentgarreau.com/particles.js/
+to see options ...check App.js to see how i configured it. check .particles class to see how to make sure it stays in the back of site.
+
+create state
+7.create state(look at App constructor )
+8.setup onSubmit and onChange on App.js and pass through POP to ImageLinkFrom /https://docs.clarifai.com/
+Face Detection model we will be using: https://www.clarifai.com/models/face-detection
+How we will use the API with JS (don't worry I will show you the easy way to do this): https://github.com/Clarifai/clarifai-javascript#basic-use
+Finally, this is the list of all the models you can use with this API if you want to customize your project: https://www.clarifai.com/model-gallery
+
+
+set setState to actually change on the first try by passing a function to it
+9.https://stackoverflow.com/questions/38558200/react-setstate-not-updating-immediately
+
+to get the square around the face do teh following
+10.Set up an ID to the img at FaceRecognition.js, and then do some DOM manipulation to it on App.js
+11.Then get the image width and height and do some calculation to get the exact ping where there sqare points will be on the calculateFaceLocation
+function and return it.
+12.create a displayFacebox function that will set the box state via de onsubmit function.
+13.pass the box state to facerecognition.js.
+14 create a new div and create a class and add some styling in a new css file.. and finally add styling passing the location where line
+will be formed.
+
+create Signin form
+15.use tachyons form component = http://tachyons.io/components/forms/sign-in/index.html
+16.note... When you put HTML in JSX you have to make sure you close inputs example - <input  type="password" />
+17.create css file for Signin and add the css on the portal in it.
+18.To style it quick first, steal the border from this card component https://tachyons.io/components/cards/product-card/index.html
+<article class="br2 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw5 center">
+19. change class to className ... you can do all in same page by pressing CTRL + H.
+
+Using the form and navigating through website.
+20.Start by creating a route state for it on App.js to track on which page we are and give it a default value of signin
+21. In order to have the Signin Form appearing only when needed, wrap components in a {} and do an if statement that says that if this.state.route
+=== to signin then return just the logo and sign in, otherwise return logo,  imagelinkform and rest of it.
+22.make sure that the components are wrapped withing divs when when doing the conditional statements
+23. Now lets make an onRouteChange function that will take us to the page once Signin button is clicked
+24.now lets use Navigation component where sign out button is to take us back to signIn component (Home)
+25.Make the onRouteChange dinamically by us passing the home or signin argument, but make sure you use this syntax when you do so.
+() => onRouteChange('home)
+
+building the register form
+26 create your register component, copy and pase same as signing and change it to name, email password,
+27 setup onclick to ()=>onRouteChange('Register') on Signin where the register value is.
+28 Do an addional condition to show register component when state equals Register.
+
+show sign in when you are the login page but only sign out when you are at home.
+29 on the Navigation Component check if isSignedIn is true, if it is then enble the Signout function and switch state to signin
+30 if isSignedIn is false, then show Log in and Register , if you click to log in it should link you to login and if you click to register to register.
+31 on app js create a new state isSignedIn and give default value false
+32 on app js where the on RouteChange function do a condition that checks if newRoute equals signout to set isSignedIn to false
+and if newRoute === home to set isSignedIn to true if newRoute is not on neither state then simply return the newRoute.
+33 pass as props the newly created isSignedIn state to Navigation
+34 fixed console errors.
+35.remove form tags to div on register and signin as forms automatically tries to send something, and we dont need it as we will use ajax later
+to send data out.
+
+//Connecting signin component to backend signing endpoint
+1.convert our Signin componen to a class coponent in order to have a state now.
+2.create an onEmailChange, onPasswordChange that produces the state changes necessary to input values in.
+3. create onSubmit that produce the post request to send data to backend. 
+4.if everything goes as accorded, when you click sign in you should be able to see response on the network tab on console log, in my case
+it should say "Sucess"
+5. Once i get that Sucess message, go ahead and get the response by .then response it. and do a conditional that if its sucess to do the 
+route change to home otherwise if its equal to "error logging in" you could create somethin to display error.
+
+////Connecting register component to backend signing endpoint
+1.Follow all similar steops from the signin on top.
+2.Since we are updating the user profile dinamically, add an user object on the App state and update it via a funtion which will be 
+invoke on the onSubmitRegister via props located on the register component. (NOTE MAKE SURE TO DO THIS FOR THE SIGNIN COMPONENT AS WELL)
+
+//Use the returned object from signin in and registering to start dinamically changing data on the rank Component
+1.once loadUser is setup and updating the state of the user, send it via props to Rank and start rendering it there dinamically
+2.do a put request from Apps.js to route /image to update the entries on our state located at App.js using our onSubmit function
+3.In order to update an especific key:value info inside of an object living inside a state, use Object.assign
+
+//deploying on heroku
+1.npm install serve --s and on the package.json change start to "serve -s build"
+2.follow steps on https://dashboard.heroku.com/apps/facerecognitionball/deploy/heroku-git
+3.to open deployed app from your commands do = 
+
+
 
