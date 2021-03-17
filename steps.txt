@@ -83,6 +83,7 @@ invoke on the onSubmitRegister via props located on the register component. (NOT
 //deploying on heroku
 1.npm install serve --s and on the package.json change start to "serve -s build"
 2.follow steps on https://dashboard.heroku.com/apps/facerecognitionball/deploy/heroku-git
+3.to open deployed app from your commands do = 
 
 
 
